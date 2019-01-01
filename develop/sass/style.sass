@@ -1,0 +1,260 @@
+$semi: "Raleway Semibold", sans-serif
+$regular: "Raleway", sans-serif
+$bold: "Raleway Bold", sans-serif
+$second_regular: "IBM Plex Sans", sans-serif
+
+$accent: #4171f0
+
+@function em($px, $base: 16px)
+	@return ($px / $base ) * 1em
+
+*
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+
+html, body
+	height: 100%
+
+body
+	font-size: 16px
+	position: relative
+
+.center
+	text-align: center
+
+.header-top
+	background: #0c6196
+	color: rgba(255,255,255,.7)
+	padding: 10px 0
+	font: em(14px) $second_regular
+
+.header-top-btns
+	text-align: right
+	i
+		margin-right: 15px
+		cursor: pointer
+		font-size: em(14px)
+	.fa-vk
+		font-size: em(17px)
+
+	.view-btn
+		color: rgba(255,255,255,.7)
+		text-decoration: none
+		&:hover
+			text-decoration: underline
+
+header
+	background: #4171f0
+	color: #fff
+	padding: 26px 0
+	margin-bottom: 60px
+
+	a
+		text-decoration: none
+		color: #fff
+
+	h6
+		font: em(14px) $regular
+		opacity: .6
+	h1
+		font: normal bold 24px "Raleway"
+
+.main-menu > ul
+	list-style-type: none
+	text-align: right
+	position: relative
+	> li
+		display: inline-block
+		margin: 0 13px
+		padding: 10px 0
+		position: relative
+		a
+			text-decoration: none
+			color: #fff
+			font: em(14px) $semi
+		&:hover ul
+			display: block
+
+	ul
+		position: absolute
+		left: 0px
+		width: 180px
+		max-width: 180px
+		top: 37px
+		background: #0c6196
+		padding: 16px 15px
+		list-style-type: none
+		text-align: left
+		border-radius: 4px
+		z-index: 70
+		display: none
+		li:not(:last-child)
+			display: block
+			margin-bottom: 14px
+		li
+			a
+				cursor: pointer
+				&:hover
+					text-decoration: underline
+
+.content-page
+	min-height: 100%
+	margin-bottom: -439px
+
+.news-title, .page-title
+	font: normal bold em(32px) "Raleway"
+	color: #1a1a1a
+	margin-bottom: 15px
+
+.news-content, .page-content
+	font: em(15px) $second_regular
+	color: #525457
+	line-height: 1.55
+
+	p
+		margin: 8px 0
+
+	h3
+		font-size: 1.56em
+		margin-bottom: 10px
+		margin-top: 40px
+
+	a
+		color: $accent
+		&:hover
+			text-decoration: none
+
+	ul, ol
+		padding-left: 40px
+
+.news-prop
+	background: #f8f8f8
+	color: #b1bccc
+	display: inline-block
+	padding: 6px 11px
+	font: em(14px) $second_regular
+	margin-bottom: 15px
+	border-radius: 4px
+	i
+		margin-right: 5px
+	&:not(:first-of-type)
+		margin-left: 10px
+
+.wp-block-gallery
+	margin-top: 30px
+	img
+		border-radius: 4px
+		transition: .25s
+	li
+		cursor: pointer
+		background: $accent
+		border-radius: 4px
+		position: relative
+		&:hover
+			img
+				opacity: .5
+
+.sharedaddy
+	margin-bottom: 30px
+	margin-top: 20px
+
+.other-title
+	font: normal bold em(24px) "Raleway"
+	margin-bottom: 15px
+
+.other-news
+	vertical-align: top
+	margin-bottom: 15px
+	a
+		font: normal bold em(18px) $second_regular
+		color: #000
+		&:hover
+			text-decoration: none
+
+.other-news-date
+	font: em(14px) $second_regular
+	color: #b1bccc
+	margin-bottom: 5px
+	.fa-stopwatch
+		opacity: .6
+		margin-right: 3px
+
+.breadcrumbs
+	color: rgba(134, 134, 134, .5)
+	font: em(14px) $regular
+	margin-bottom: 30px!important
+	a
+		color: #868686
+		border-bottom: 1px solid rgba(134, 134, 134, .2)
+		padding-bottom: 6px
+
+.wp-block-table
+	border-collapse: collapse
+	margin-bottom: 60px
+	tr
+		&:first-child
+			td
+				font-weight: bold
+				background: #fbfbfb
+	td
+		border: 1px solid #ccc
+		padding: 10px 12px
+		text-align: center
+		&:not(:first-child):hover
+			cursor: pointer
+			background: #fbfbfb
+
+footer
+	background: url(../img/footer.jpg) no-repeat top
+	background-size: cover	
+	padding: 60px 0
+	height: 439px
+	margin-top: 504px
+	font: em(14px) $regular
+	text-align: center
+	*
+		color: #fff
+
+.footer-menu
+	list-style: none
+	display: inline-block
+	border-bottom: 1px solid rgba(255,255,255,.25)
+	padding-bottom: 26px
+	> li
+		display: inline-block
+		vertical-align: top
+		text-align: left
+		max-width: 200px
+		> h5
+			text-decoration: none
+			text-transform: uppercase
+			letter-spacing: 2px
+			font: em(16px) $semi
+			margin-bottom: 30px
+			display: block
+		&:not(:first-child)
+			margin-left: 50px
+
+	ul
+		list-style-type: none
+		li
+			margin-bottom: 10px
+			a
+				text-decoration: none
+				color: rgba(255,255,255,.6)
+				&:hover
+					text-decoration: underline
+
+.footer_contacts
+	i
+		color: #ffdc83
+		margin-right: 5px
+	p
+		color: rgba(255,255,255,.6)
+		margin-bottom: 8px
+		line-height: 1.8
+
+.footer_designed
+		opacity: .6
+		padding-top: 16px
