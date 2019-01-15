@@ -178,3 +178,21 @@ function gutenberg_boilerplate_block() {
     ) );
 }
 add_action( 'init', 'gutenberg_boilerplate_block' );
+
+// Специальности
+function create_post_type() {
+  register_post_type( 'speciality',
+    array(
+      'labels' => array(
+        'name' => __( 'Специальности' ),
+        'singular_name' => __( 'Специальность' ),
+        'add_new' => 'Добавить новую'
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'menu_icon' => 'dashicons-book-alt',
+      'supports' => array('title', 'custom-fields')
+    )
+  );
+}
+add_action( 'init', 'create_post_type' );

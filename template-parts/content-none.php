@@ -1,51 +1,7 @@
-<?php
-/**
- * Template part for displaying a message that posts cannot be found
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package koopteh
- */
-
-?>
-
-<section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'koopteh' ); ?></h1>
-	</header><!-- .page-header -->
-
-	<div class="page-content">
-		<?php
-		if ( is_home() && current_user_can( 'publish_posts' ) ) :
-
-			printf(
-				'<p>' . wp_kses(
-					/* translators: 1: link to WP admin new post page. */
-					__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'koopteh' ),
-					array(
-						'a' => array(
-							'href' => array(),
-						),
-					)
-				) . '</p>',
-				esc_url( admin_url( 'post-new.php' ) )
-			);
-
-		elseif ( is_search() ) :
-			?>
-
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'koopteh' ); ?></p>
-			<?php
-			get_search_form();
-
-		else :
-			?>
-
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'koopteh' ); ?></p>
-			<?php
-			get_search_form();
-
-		endif;
-		?>
-	</div><!-- .page-content -->
-</section><!-- .no-results -->
+<h1 class="nothing-found">Я старался, но ничего не нашёл :(</h1>
+<div id="search-form">
+	<form role="search" method="get" class="search-form" action="<?php echo site_url('/'); ?>">
+		<input type="search" class="search-field" placeholder="Поиск…" value="" name="s" autocomplete="off" spellcheck="false" required>
+		<input type="submit" class="search-submit" value="Поиск">
+	</form>					
+</div>

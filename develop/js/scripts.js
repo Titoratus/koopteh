@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	
 	$('.wp-block-gallery').magnificPopup({
 		delegate: 'a',
 		type: 'image',
@@ -12,4 +13,21 @@ $(document).ready(function() {
 			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
 		}
 	});
+
+	$('.search-popup').magnificPopup({
+		type: 'inline',
+
+		fixedContentPos: false,
+		fixedBgPos: true,
+
+		overflowY: 'auto',
+
+		closeBtnInside: true,
+		preloader: false,
+		
+		midClick: true,
+		removalDelay: 300,
+		mainClass: 'my-mfp-zoom-in'
+	});
+
 });

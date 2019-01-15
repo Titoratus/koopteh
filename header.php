@@ -12,6 +12,8 @@
 
 <body <?php body_class(); ?>>
 
+<header>
+
 <div class="header-top">
 	<div class="container">
 		<div class="row align-items-center justify-content-between">
@@ -45,7 +47,15 @@
 			</div>
 			<div class="col-md-4 header-top-btns">
 				<i class="fab fa-vk"></i>
-				<i class="fas fa-search"></i>
+
+				<a class="search-popup" href="#search-form"><i class="fas fa-search"></i></a>
+				<div id="search-form" class="zoom-anim-dialog mfp-hide">
+					<form role="search" method="get" class="search-form" action="<?php echo site_url('/'); ?>">
+						<input type="search" class="search-field" placeholder="Поиск…" value="" name="s" autocomplete="off" spellcheck="false" required>
+						<input type="submit" class="search-submit" value="Поиск">
+					</form>					
+				</div>
+
 				<i class="fas fa-sitemap"></i>
 				<a href="" class="view-btn">Версия для слабовидящих</a>
 			</div>
@@ -53,7 +63,7 @@
 	</div>
 </div>
 
-<header>
+
 	<div class="container">
 		<div class="row align-items-center">
 
