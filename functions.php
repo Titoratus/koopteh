@@ -153,6 +153,16 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+// Включение Рубрик для страниц
+function enable_cat_for_pages() {
+    // Add tag metabox to page
+    register_taxonomy_for_object_type('post_tag', 'page'); 
+    // Add category metabox to page
+    register_taxonomy_for_object_type('category', 'page');  
+}
+ // Add to the admin_init hook of your theme functions.php file 
+add_action( 'init', 'enable_cat_for_pages' );
+
 remove_action( 'wp_head', 'wp_resource_hints', 1);
 remove_action( 'wp_head', 'feed_links', 2);
 remove_action( 'wp_head', 'feed_links_extra', 3);
@@ -196,3 +206,15 @@ function create_post_type() {
   );
 }
 add_action( 'init', 'create_post_type' );
+
+// Доп. поля в "Настройках"
+function my_more_options() {
+	add_settings_field('comp_vk', 'ВКонтакте', 'display_vk', 'general');
+	register_setting('general', 'comp_vk');
+}
+
+add_action('admin_init', 'my_more_options');
+
+function display_vk() {
+	echo "<input type='text' name='comp_vk' autocomplete='off' value='".esc_attr(get_option('comp_vk'))."'>";
+}

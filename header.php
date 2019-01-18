@@ -46,7 +46,7 @@
 				?>
 			</div>
 			<div class="col-md-4 header-top-btns">
-				<i class="fab fa-vk"></i>
+				<a href="<?php echo get_option('comp_vk'); ?>"><i class="fab fa-vk"></i></a>
 
 				<a class="search-popup" href="#search-form"><i class="fas fa-search"></i></a>
 				<div id="search-form" class="zoom-anim-dialog mfp-hide">

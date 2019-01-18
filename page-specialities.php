@@ -43,7 +43,7 @@
 
 									<div class="spec_desc"><?php echo wp_trim_words(get_field('spec_desc'), 23); ?></div>
 
-									<a class="spec_read" href="<?php the_field('spec_link'); ?>">Подробнее</a>
+									<a class="spec_read" href="<?php echo get_permalink(); ?>">Подробнее</a>
 
 									<div class="spec_img" style="background: url(<?php echo get_field('spec_img'); ?>); -webkit-background-size: cover; background-size: cover;"></div>
 								</div>
