@@ -4,7 +4,7 @@
 			
 			<?php if( function_exists('fw_ext_breadcrumbs') ) { fw_ext_breadcrumbs(); } ?>
 
-			<article class="news">
+			<article class="news_article">
 				<h1 class="news-title"><?php the_title(); ?></h1>
 				<div class="news-prop news-date">
 					<i class="fas fa-stopwatch"></i>

@@ -1,5 +1,9 @@
 <div class="container content-page">
 	<div class="row">
+		<div class="col-12"><?php if( function_exists('fw_ext_breadcrumbs') ) { fw_ext_breadcrumbs(); } ?></div>	
+	</div>
+		
+	<div class="row">
 		<div class="col-md-8">
 
 			<article class="page">

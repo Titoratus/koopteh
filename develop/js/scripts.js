@@ -30,4 +30,15 @@ $(document).ready(function() {
 		mainClass: 'my-mfp-zoom-in'
 	});
 
+	// Табы в поиске
+	$(document).on("click", ".search-tabs li", function(){
+		var tab_id = $(this).attr('data-tab');
+
+		$('.search-tabs li').removeClass('current');
+		$('.tab-content').removeClass('tab-current');
+
+		$(this).addClass('current');
+		$("#"+tab_id).addClass('tab-current');
+	});
+
 });

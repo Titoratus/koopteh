@@ -218,3 +218,12 @@ add_action('admin_init', 'my_more_options');
 function display_vk() {
 	echo "<input type='text' name='comp_vk' autocomplete='off' value='".esc_attr(get_option('comp_vk'))."'>";
 }
+
+// Excerpt
+add_filter('excerpt_more', function($more) {
+	return '...';
+});
+add_filter( 'excerpt_length', function(){
+	return 22;
+});
+remove_filter( 'the_excerpt', 'wpautop' );

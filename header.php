@@ -50,10 +50,11 @@
 
 				<a class="search-popup" href="#search-form"><i class="fas fa-search"></i></a>
 				<div id="search-form" class="zoom-anim-dialog mfp-hide">
+					<h5 class="search-form-title">Поиск по сайту</h5>
 					<form role="search" method="get" class="search-form" action="<?php echo site_url('/'); ?>">
 						<input type="search" class="search-field" placeholder="Поиск…" value="" name="s" autocomplete="off" spellcheck="false" required>
 						<input type="submit" class="search-submit" value="Поиск">
-					</form>					
+					</form>
 				</div>
 
 				<i class="fas fa-sitemap"></i>

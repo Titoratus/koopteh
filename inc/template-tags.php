@@ -13,9 +13,6 @@ if ( ! function_exists( 'koopteh_posted_on' ) ) :
 	 */
 	function koopteh_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-		}
 
 		$time_string = sprintf( $time_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
@@ -26,8 +23,8 @@ if ( ! function_exists( 'koopteh_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'koopteh' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			esc_html_x( '%s', 'post date', 'koopteh' ),
+			$time_string
 		);
 
 		echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
@@ -60,10 +57,10 @@ if ( ! function_exists( 'koopteh_entry_footer' ) ) :
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list( esc_html__( ', ', 'koopteh' ) );
-			if ( $categories_list ) {
-				/* translators: 1: list of categories. */
+			/*if ( $categories_list ) {
+				translators: 1: list of categories.
 				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'koopteh' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-			}
+			}*/
 
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'koopteh' ) );
@@ -71,32 +68,23 @@ if ( ! function_exists( 'koopteh_entry_footer' ) ) :
 				/* translators: 1: list of tags. */
 				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'koopteh' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 			}
-		}
 
-		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<span class="comments-link">';
-			comments_popup_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: post title */
-						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'koopteh' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					get_the_title()
-				)
-			);
-			echo '</span>';
+			if (function_exists('the_views')) {
+			?>
+				<span class="post-views">
+			<?php
+				the_views();
+			?>
+				</span>
+			<?php
+			}
 		}
 
 		edit_post_link(
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="screen-reader-text">%s</span>', 'koopteh' ),
+					__( 'Редактировать', 'koopteh' ),
 					array(
 						'span' => array(
 							'class' => array(),
