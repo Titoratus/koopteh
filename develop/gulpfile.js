@@ -31,6 +31,7 @@ gulp.task('scripts', function(){
 	return gulp.src([
 		'libs/jquery/dist/jquery.min.js',
 		'libs/magnific-popup/dist/jquery.magnific-popup.min.js',
+		'libs/owl.carousel/dist/owl.carousel.min.js',
 		'js/scripts.js'
 	])
 	.pipe(concat('scripts.min.js'))
@@ -43,6 +44,9 @@ gulp.task('css-libs', function(){
 		'libs/components-font-awesome/css/fontawesome-all.min.css',
 		'libs/bootstrap/bootstrap-grid.min.css',
 		'libs/magnific-popup/dist/magnific-popup.css',
+		'libs/owl.carousel/dist/assets/owl.carousel.min.css',
+		'libs/owl.carousel/dist/assets/owl.theme.default.min.css',
+		'libs/owl.carousel/dist/assets/owl.theme.green.min.css',
 		])
 	.pipe(concat('libs.css'))
 	.pipe(cssnano({ zindex: false }))

@@ -7,12 +7,10 @@
 			<article class="news_article">
 				<h1 class="news-title"><?php the_title(); ?></h1>
 				<div class="news-prop news-date">
-					<i class="fas fa-stopwatch"></i>
-					<?php the_date(); ?>
-					</div>
+					<div class="posted-on"><?php the_date(); ?></div>
+				</div>
 				<div class="news-prop news-views">
-					<i class="fas fa-eye"></i>
-					<?php if (function_exists('the_views')) { the_views(); } ?>
+					<div class="post-views"><?php if (function_exists('the_views')) { the_views(); } ?></div>
 				</div>
 			</article>			
 

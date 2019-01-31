@@ -211,12 +211,18 @@ add_action( 'init', 'create_post_type' );
 function my_more_options() {
 	add_settings_field('comp_vk', 'ВКонтакте', 'display_vk', 'general');
 	register_setting('general', 'comp_vk');
+	add_settings_field('org_addr', 'Адрес техникума', 'display_addr', 'general');
+	register_setting('general', 'org_addr');
 }
 
 add_action('admin_init', 'my_more_options');
 
 function display_vk() {
 	echo "<input type='text' name='comp_vk' autocomplete='off' value='".esc_attr(get_option('comp_vk'))."'>";
+}
+
+function display_addr() {
+	echo "<input type='text' name='org_addr' autocomplete='off' value='".esc_attr(get_option('org_addr'))."'>";
 }
 
 // Excerpt
@@ -227,3 +233,54 @@ add_filter( 'excerpt_length', function(){
 	return 22;
 });
 remove_filter( 'the_excerpt', 'wpautop' );
+
+// Фотогалерея
+function create_my_gallery() {
+  register_post_type( 'gallery',
+    array(
+      'labels' => array(
+        'name' => __( 'Галерея' ),
+        'singular_name' => __( 'Галерея' ),
+        'add_new' => 'Добавить альбом',
+        'add_new_item' => 'Добавить альбом',
+      ),
+      'public' => true,
+      'has_archive' => false,
+      'menu_icon' => 'dashicons-book-alt',
+      'supports' => array('title', 'custom-fields'),
+			'rewrite' => array('slug' => 'gallery/%gallery%')
+    )
+  );
+}
+add_action( 'init', 'create_my_gallery' );
+
+// Видео
+function create_video() {
+  register_post_type( 'video',
+    array(
+      'labels' => array(
+        'name' => __( 'Видео' ),
+        'singular_name' => __( 'Видео' ),
+        'add_new' => 'Добавить видео',
+        'add_new_item' => 'Добавить видео',
+      ),
+      'public' => true,
+      'has_archive' => false,
+      'menu_icon' => 'dashicons-book-alt',
+      'supports' => array('title', 'custom-fields')
+    )
+  );
+}
+add_action( 'init', 'create_video' );
+
+// function wpa_gallery_post_link( $post_link, $id = 0 ){
+//     $post = get_post($id);  
+//     if ( is_object( $post ) ){
+//         $terms = wp_get_object_terms( $post->ID, 'gallery' );
+//         if( $terms ){
+//             return str_replace( '%gallery%' , $terms[0]->slug , $post_link );
+//         }
+//     }
+//     return $post_link;  
+// }
+// add_filter( 'post_type_link', 'wpa_gallery_post_link', 1, 3 );

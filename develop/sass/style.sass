@@ -24,6 +24,27 @@ body
 
 .center
 	text-align: center 
+ol
+	padding-left: 18px
+	
+.list-docs
+	list-style-type: none
+	overflow: hidden
+	padding-left: 26px
+	line-height: 1.5
+	li
+		margin: 18px 0
+		position: relative
+		&::before
+			content: ''
+			display: block
+			width: 18px
+			height: 18px
+			position: absolute
+			left: -20px
+			top: 50%
+			margin-top: -9px
+			background: url(../img/icons.png) no-repeat -72px 0
 
 .header-top
 	background: #355cc4
@@ -135,6 +156,90 @@ body
 	font-size: em(14px)
 	margin-bottom: 12px
 
+// Карусель на главной
+.ann-carousel
+	width: 100%
+	box-shadow: 0 12px 21px rgba(51, 51, 51, .05)
+
+	.owl-nav
+		position: absolute
+		right: 0
+		bottom: 0
+
+		.owl-prev, .owl-next
+			width: 36px
+			height: 36px
+			background: $accent!important
+			color: #fff!important
+			line-height: 36px!important
+			outline: none
+			&:hover
+				opacity: .9
+
+.ann_info
+	padding: 38px 30px
+	font-size: em(14px)
+	h3
+		font-size: 1.4em
+		margin-bottom: 12px
+	p
+		margin-bottom: 8px
+		color: #313336
+		&:last-child
+			margin-bottom: 24px
+
+	.ann_more
+		color: #313336
+		opacity: .5
+		text-decoration: underline
+		font-size: 1em
+		&:hover
+			opacity: .8
+
+.ann_img
+	height: 254px
+	overflow: hidden
+	img
+		height: auto
+		width: 100%
+
+.last_news
+	font-size: em(14px)
+	padding-left: 40px
+	h3
+		color: $accent
+		font-style: italic
+		margin-bottom: 35px
+		font-size: 1.071rem
+		position: relative
+		&::before
+			content: ''
+			display: block
+			width: 55%
+			opacity: .2
+			background: $accent
+			height: 1px
+			position: absolute
+			right: 0
+			top: 50%
+	h4
+		margin-bottom: 10px
+		cursor: pointer
+		font-size: 0.938rem
+		a
+			color: #313336
+			&:hover
+				text-decoration: none	
+	.post-views
+		margin-left: 20px
+
+.last_news_item
+	margin-bottom: 28px
+
+.last_news_desc
+	color: #313336
+	margin-bottom: 12px
+
 .pagination
 	border-top: 1px solid #e5e5e5
 	padding-top: 20px
@@ -162,7 +267,7 @@ body
 		position: absolute
 		left: -1px
 		top: 50%
-		margin-top: -6px
+		margin-top: -7px
 		background: url(../img/icons.png) 0px center
 		background-size: cover
 
@@ -179,17 +284,26 @@ body
 	background-position: 0 0
 
 .post-views::before
-	background-position: 17px 0
-
-.post-views
-	margin-left: 29px
+	background-position: -36px 0
 
 // Объявления
 .announce
 	color: #404551
 	h2
-		font: normal bold em(24px) $regular
-		margin-bottom: 30px
+		font: italic bold em(24px) $regular
+		margin-bottom: 24px
+		color: $accent
+		position: relative
+		&::before
+			content: ''
+			display: block
+			width: 55%
+			height: 1px
+			background: $accent
+			opacity: .2
+			position: absolute
+			right: 0
+			top: 50%
 	
 .announce_item
 	padding-bottom: 30px
@@ -383,11 +497,25 @@ header
 			text-decoration: none
 			color: #fff
 			font: em(15px) $regular
-		&:hover ul
+		&:hover
+			ul
+				display: block
+				visibility: visible
+				opacity: 1
+				top: 37px
+			&::after
+				width: 100%
+		&::after
+			content: ''
 			display: block
-			visibility: visible
-			opacity: 1
-			top: 37px
+			width: 0
+			transition: .45s
+			height: 1px
+			background: #fff
+			position: absolute
+			left: 0
+			bottom: 3px
+			opacity: .4
 
 	ul
 		transition: .45s ease
@@ -398,7 +526,7 @@ header
 		width: auto
 		white-space: nowrap
 		top: 27px
-		background: #355cc4
+		background: linear-gradient(-45deg,#4a90c1,#355cc4 40%)
 		padding: 22px 25px
 		list-style-type: none
 		text-align: left
@@ -413,10 +541,14 @@ header
 				&:hover
 					text-decoration: underline
 
+.news
+	.post-views
+		margin-left: 24px
+
 .news-title, .page-title
 	font: normal bold em(32px) $regular
 	color: #1a1a1a
-	margin-bottom: 20px
+	margin-bottom: 28px
 
 .news-content, .page-content
 	font: em(15px) $second_regular
@@ -426,7 +558,7 @@ header
 	p
 		margin: 20px 0
 		&:first-of-type
-			margin-top: 0
+			margin-top: 10px
 
 	h3
 		font-size: 1.56em
@@ -436,21 +568,16 @@ header
 	a
 		color: $accent
 		&:hover
-			text-decoration: none
-
-	ul, ol
-		padding-left: 40px
+			text-decoration: none	
 
 .news-prop
 	background: #f8f8f8
-	color: #b1bccc
+	color: #9aa6b7
 	display: inline-block
 	padding: 6px 11px
-	font: em(14px) $second_regular
+	font: em(16px) $second_regular
 	margin-bottom: 15px
 	border-radius: 4px
-	i
-		margin-right: 5px
 	&:not(:first-of-type)
 		margin-left: 10px
 
@@ -511,18 +638,25 @@ header
 	border-collapse: collapse
 	margin-bottom: 60px
 	width: 100%
+	border: 1px solid #e2e2e2
 	tr
 		&:first-child
 			td
 				font-weight: bold
 				background: #fbfbfb
 	td
-		border: 1px solid #ccc
 		padding: 10px 12px
+		border: 1px solid #e2e2e2
 		text-align: center
-		&:not(:first-child):hover
-			cursor: pointer
-			background: #fbfbfb
+		transition: .25s
+		&:first-of-type
+			padding: 10px 0
+	tr:not(:first-child)
+		td
+			&:not(:first-child):hover
+				cursor: pointer
+				background: #f8faff
+				box-shadow: inset 0 -1px 0 $accent
 
 footer
 	background: url(../img/footer.jpg) no-repeat top
@@ -726,7 +860,25 @@ footer
 			display: block
 			color: #444
 			font: em(18px) $regular
+			transition: transform .25s
 			&:hover
-				background: $accent
+				background: linear-gradient(-45deg,#4a90c1,#355cc4 40%)
+				transform: translateX(5px)
 				color: #fff
 				border-color: $accent
+
+// Контакты
+.contact_item
+	display: inline-block
+	max-width: 320px
+	font: em(17px) $regular
+	vertical-align: top
+	float: left
+	line-height: 1.47
+	&:not(:first-child)
+		margin-left: 90px
+
+.org_map
+	margin-top: 40px
+	iframe
+		box-shadow: 0 0 30px rgba(51, 51, 51, .08)

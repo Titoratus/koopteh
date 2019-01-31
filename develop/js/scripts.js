@@ -41,4 +41,15 @@ $(document).ready(function() {
 		$("#"+tab_id).addClass('tab-current');
 	});
 
+	// Карусель на главной
+	$(".owl-carousel").owlCarousel({
+		nav:true,
+		dots:false,
+		responsive:{
+		        0:{
+		            items:1
+		        }
+		    }		
+	});
+
 });

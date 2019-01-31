@@ -58,7 +58,7 @@
 				</div>
 
 				<i class="fas fa-sitemap"></i>
-				<a href="" class="view-btn">Версия для слабовидящих</a>
+				<a href="" class="view-btn bvi-panel-open">Версия для слабовидящих</a>
 			</div>
 		</div>
 	</div>

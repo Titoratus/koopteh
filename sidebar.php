@@ -16,7 +16,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	if ($the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
 	?>
 		<div class="announce_item">
-			<h3><?php the_title(); ?></h4>
+			<h3><?php the_title(); ?></h3>
 			<div class="announce_desc"><?php the_content(); ?></div>
 		</div>
 	<?php
