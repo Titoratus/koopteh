@@ -246,9 +246,9 @@ function create_my_gallery() {
       ),
       'public' => true,
       'has_archive' => false,
-      'menu_icon' => 'dashicons-book-alt',
+      'menu_icon' => 'dashicons-format-gallery',
       'supports' => array('title', 'custom-fields'),
-			'rewrite' => array('slug' => 'gallery/%gallery%')
+			//'rewrite' => array('slug' => 'gallery/%gallery%')
     )
   );
 }
@@ -266,7 +266,7 @@ function create_video() {
       ),
       'public' => true,
       'has_archive' => false,
-      'menu_icon' => 'dashicons-book-alt',
+      'menu_icon' => 'dashicons-editor-video',
       'supports' => array('title', 'custom-fields')
     )
   );
@@ -284,3 +284,22 @@ add_action( 'init', 'create_video' );
 //     return $post_link;  
 // }
 // add_filter( 'post_type_link', 'wpa_gallery_post_link', 1, 3 );
+
+// Полезные ссылки
+function create_links() {
+  register_post_type( 'useful_links',
+    array(
+      'labels' => array(
+        'name' => __( 'Ссылки' ),
+        'singular_name' => __( 'Ссылка' ),
+        'add_new' => 'Добавить ссылку',
+        'add_new_item' => 'Добавить ссылку',
+      ),
+      'public' => true,
+      'has_archive' => false,
+      'menu_icon' => 'dashicons-admin-links',
+      'supports' => array('title', 'custom-fields')
+    )
+  );
+}
+add_action( 'init', 'create_links' );

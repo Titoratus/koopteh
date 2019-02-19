@@ -16,10 +16,11 @@
 					</div>
 				</div>
 
-				<div class="row">
+				<div class="row spec_items">
 				<?php
 					$args = array(
-					    'post_type'=> 'speciality'
+					    'post_type'=> 'speciality',
+					    'posts_per_page' => -1
 					    );              
 
 					$the_query = new WP_Query( $args );
@@ -33,7 +34,8 @@
 									<div class="row spec_oz">
 										<div class="col-md-5">
 											<b>Очно:</b>
-											<?php the_field('spec_o'); ?>
+											<p>9 кл. — <?php the_field('spec_o_9'); ?></p>
+											<?php if (get_field('spec_o_11')): ?><p>11 кл. — <?php the_field('spec_o_11'); ?></p><?php endif; ?>
 										</div>
 										<div class="col-md-5 offset-1">
 											<b>Заочно:</b>

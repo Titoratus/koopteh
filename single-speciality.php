@@ -31,7 +31,8 @@
 						<div class="row">
 							<div class="col-md-6">
 								<b>Очно:</b>
-								<?php echo get_field('spec_o'); ?>
+								<p>9 кл. — <?php echo get_field('spec_o_9'); ?></p>
+								<?php if (get_field('spec_o_11')): ?><p>11 кл. — <?php the_field('spec_o_11'); ?></p><?php endif; ?>
 							</div>
 							<div class="col-md-6">
 								<b>Заочно:</b>

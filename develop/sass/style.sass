@@ -1,6 +1,8 @@
 $semi: "Clear Sans Semibold", sans-serif
-$regular: "Clear Sans", sans-serif
-$bold: "Clear Sans Bold", sans-serif
+$regular: "clearsans-regular", sans-serif
+$italic: "clearsans-italic", sans-serif
+$bold: "clearsans-bold", sans-serif
+$bold_italic: "clearsans-bolditalic", sans-serif
 $second_regular: "IBM Plex Sans", sans-serif
 
 $accent: #4171f0
@@ -22,29 +24,57 @@ body
 	min-height: 100%
 	padding-bottom: 532px
 
+.home
+	padding-bottom: 472px
+
 .center
-	text-align: center 
+	text-align: center
+
 ol
 	padding-left: 18px
-	
-.list-docs
-	list-style-type: none
-	overflow: hidden
-	padding-left: 26px
-	line-height: 1.5
-	li
-		margin: 18px 0
-		position: relative
-		&::before
-			content: ''
-			display: block
-			width: 18px
-			height: 18px
-			position: absolute
-			left: -20px
-			top: 50%
-			margin-top: -9px
-			background: url(../img/icons.png) no-repeat -72px 0
+
+// ul
+// 	list-style-type: none
+// 	margin: 40px 0
+// 	padding-left: 30px
+
+// 	li
+// 		position: relative
+// 		line-height: 1.4
+// 		margin: 10px 0
+// 		&::before
+// 			content: '—'
+// 			position: absolute
+// 			left: -30px
+// 			top: 0
+
+em, i
+	font-family: $italic
+
+.section
+	padding: 90px 0
+
+.section-title
+	font: em(32px) $bold_italic
+	color: #345271
+	position: relative
+	margin-bottom: 60px
+	z-index: 55
+	span
+		padding-right: 20px
+		background: #fff
+	&::after
+		content: ''
+		display: block
+		width: 100%
+		height: 1px
+		background: #3f6ce6
+		position: absolute
+		right: 0
+		top: 50%
+		margin-top: 2px
+		opacity: .2
+		z-index: -1
 
 .header-top
 	background: #355cc4
@@ -85,7 +115,7 @@ ol
 		margin-bottom: 0
 
 .search-form-title
-	font: normal bold em(27px) $regular
+	font: em(27px) $bold
 	margin-bottom: 20px
 
 .search-form
@@ -130,7 +160,7 @@ ol
 	margin-bottom: 40px
 
 .search_item_title, .news_title
-	font: normal bold em(19px) $regular
+	font: em(19px) $bold
 	margin-bottom: 12px
 	a
 		text-decoration: none
@@ -180,7 +210,7 @@ ol
 	padding: 38px 30px
 	font-size: em(14px)
 	h3
-		font-size: 1.4em
+		font: 1.4em $bold
 		margin-bottom: 12px
 	p
 		margin-bottom: 8px
@@ -208,9 +238,8 @@ ol
 	padding-left: 40px
 	h3
 		color: $accent
-		font-style: italic
 		margin-bottom: 35px
-		font-size: 1.071rem
+		font: 1.071rem $bold_italic
 		position: relative
 		&::before
 			content: ''
@@ -235,6 +264,10 @@ ol
 
 .last_news_item
 	margin-bottom: 28px
+	h4
+		a
+			display: block
+			font-family: $bold
 
 .last_news_desc
 	color: #313336
@@ -244,7 +277,7 @@ ol
 	border-top: 1px solid #e5e5e5
 	padding-top: 20px
 	a, span
-		font: normal bold em(15px) $regular
+		font: em(15px) $bold
 		color: rgba(0,0,0,.32)
 		&:not(:first-child)
 				margin-left: 23px
@@ -290,7 +323,7 @@ ol
 .announce
 	color: #404551
 	h2
-		font: italic bold em(24px) $regular
+		font: em(24px) $bold_italic
 		margin-bottom: 24px
 		color: $accent
 		position: relative
@@ -312,7 +345,7 @@ ol
 		border-top: 1px solid #e5e5e5
 
 	h3
-		font: normal bold em(16px) $regular
+		font: em(16px) $bold
 
 	p
 		margin-top: 10px
@@ -332,7 +365,7 @@ ol
 		display: inline-block
 		padding: 10px 18px
 		cursor: pointer
-		font: normal bold em(18px) $regular
+		font: em(18px) $bold
 		font-size: 18px
 		padding-bottom: 14px
 		border-bottom: 1px solid #e5e5e5
@@ -347,7 +380,6 @@ ol
 
 .tab-current
 	display: inherit
-		
 
 .my-mfp-zoom-in .zoom-anim-dialog 
 	opacity: 0
@@ -481,7 +513,7 @@ header
 		font: em(14px) $regular
 		opacity: .6
 	h1
-		font: normal bold 24px $regular
+		font: 24px $bold
 		line-height: 1.2
 
 .main-menu > ul
@@ -516,6 +548,8 @@ header
 			left: 0
 			bottom: 3px
 			opacity: .4
+		ul
+			z-index: 101
 
 	ul
 		transition: .45s ease
@@ -546,13 +580,14 @@ header
 		margin-left: 24px
 
 .news-title, .page-title
-	font: normal bold em(32px) $regular
+	font: em(32px) $bold
 	color: #1a1a1a
 	margin-bottom: 28px
+	line-height: 1.3
 
 .news-content, .page-content
 	font: em(15px) $second_regular
-	color: #525457
+	color: #313336
 	line-height: 1.55
 
 	p
@@ -600,17 +635,17 @@ header
 
 .sharedaddy
 	margin-bottom: 30px
-	margin-top: 20px
+	margin-top: 60px
 
 .other-title
-	font: normal bold em(24px) $regular
+	font: em(24px) $bold
 	margin-bottom: 15px
 
 .other-news
 	vertical-align: top
 	margin-bottom: 15px
 	a
-		font: normal bold em(18px) $second_regular
+		font: em(18px) $bold
 		color: #000
 		&:hover
 			text-decoration: none
@@ -718,16 +753,34 @@ footer
 	color: #222
 	font: em(28px) $regular
 
+.u_link
+	max-width: 300px
+	display: inline-block
+	text-align: center
+	font-size: em(17px)
+	color: rgba(0,0,0,.67)
+	text-decoration: underline
+	&:hover
+		text-decoration: none
+	img
+		height: 50px!important
+		width: auto!important
+		display: block
+		margin: 0 auto
+		margin-bottom: 10px
+	&:not(:last-of-type)
+		margin-right: 80px
+
 // Специальности
 .spec_item
 	background: #fff
 	border: 1px solid #e5e5e5
 	padding: 38px 34px
 	box-shadow: 0 32px 76px rgba(28, 60, 79, .1)
-	margin-top: 50px
 	width: 100%
 	position: relative
 	height: 900px
+	margin-bottom: 50px
 
 .spec_num
 	color: rgba(64, 69, 81, .4)
@@ -735,7 +788,7 @@ footer
 
 .spec_name
 	color: #404551
-	font: normal bold em(21px) $regular
+	font: em(21px) $bold
 	margin-bottom: 21px
 
 .spec_qualif
@@ -751,9 +804,10 @@ footer
 .spec_oz
 	font-size: 1em
 	margin-bottom: 40px
+	line-height: 1.6
 	b
 		color: #404551
-		font: normal bold 1em $regular
+		font: 1em $bold
 		display: block
 		margin-bottom: 12px
 
@@ -768,7 +822,11 @@ footer
 	padding: 9px 27px
 	cursor: pointer
 	text-decoration: none
+	border-radius: 20px
 	display: inline-block
+	transition: .25s
+	&:hover
+		opacity: .9
 
 .spec_img
 	height: 350px
@@ -779,31 +837,105 @@ footer
 	left: 0
 	bottom: 0
 
+.section-top
+	padding-top: 10px
+	padding-bottom: 40px
+
+// Специальности на главной (табы)
+.section-specs
+	background: #f7f9fc
+
+	.section-title span
+		background: #f7f9fc
+
+	.tab-link
+		margin: 12px 0
+		padding: 12px
+		cursor: pointer
+		margin-left: -50px
+		padding-left: 50px
+
+	.tab-link.active
+		font-family: $bold
+		background: linear-gradient(#5884f7, #4171f0)
+		color: #fff
+		border-radius: 0 40px 40px 0
+		border: 1px solid #4474f1
+		box-shadow: inset 0 -1px 0 rgba(255,255,255,.36), 0 12px 21px rgba(51, 51, 51, 0.1)
+	
+	.tab-content
+		background: #fff
+		padding: 30px 28px
+		position: relative
+		z-index: 102
+		box-shadow: 0 10px 50px -10px rgba(0,0,0,.07)
+
+		h3
+			font: em(23px) $bold
+			line-height: 1.3
+			max-width: 80%
+			margin-bottom: 10px
+			color: #445970
+
+		.tab-qualif
+			color: rgba(0,0,0,.6)
+			margin-bottom: 26px
+
+		.tab-time
+			margin-bottom: 30px
+			font-size: em(15px)
+			span, .more
+				display: inline-block
+				padding: 8px 10px
+				background: #f7f9fc
+				color: rgba(0,0,0,.85)
+				&:not(:first-child)
+					margin-left: 16px		
+			b
+				font-family: $bold
+				color: #59728c
+			.more
+				background: none
+				color: rgba(0,0,0,.6)
+				padding: 8px 20px
+				&:hover
+					text-decoration: none
+
+		img
+			width: 100%
+			border-radius: 10px
+
 // Страница специальности
 .spec_page_top
 	margin-bottom: 60px
 
 .spec_page_title
-	font: normal bold em(40px) $regular
+	font: em(40px) $bold
 	color: #345bc1
 	line-height: 1.2
 
 .spec_page_num
 	color: rgba(39, 39, 39, .3)
-	font-size: em(18px)
+	font: em(18px) $bold
 	margin-top: 60px
 
 .spec_page_qualif
 	font: em(18px) $regular
-	color: rgba(0,0,0,.5)
+	color: #1a9c30
 	display: inline-block
 	border-radius: 30px
 
 .spec_page_desc
-	p span
+	p
 		font: em(18px) $regular!important
 		color: #272727
 		line-height: 1.34!important
+
+		strong
+			font-family: $bold
+
+		em, i
+			font-family: $italic
 
 	p:not(:last-of-type)
 		margin-bottom: 26px
@@ -816,7 +948,7 @@ footer
 	margin-top: 86px
 	h4
 		margin-bottom: 24px
-		font-size: em(21px)
+		font: em(21px) $bold
 	ol
 		padding-left: 20px
 		text-indent: 2px
@@ -843,6 +975,7 @@ footer
 .error-404
 	h1
 		text-align: center
+		font-family: $bold
 
 // Сведения об ОО
 .org-main-info
@@ -858,8 +991,8 @@ footer
 			padding: 12px 20px
 			text-decoration: none
 			display: block
-			color: #444
-			font: em(18px) $regular
+			color: #616161
+			font: em(17px) $regular
 			transition: transform .25s
 			&:hover
 				background: linear-gradient(-45deg,#4a90c1,#355cc4 40%)
@@ -882,3 +1015,63 @@ footer
 	margin-top: 40px
 	iframe
 		box-shadow: 0 0 30px rgba(51, 51, 51, .08)
+
+
+// Фотогалерея
+.album-title
+	margin-bottom: 12px
+	font-family: $bold
+
+.album-image
+	width: 60%
+	overflow: hidden
+	transition: .25s
+	&:hover
+		box-shadow: 0 12px 28px rgba(0,0,0,.15)
+	img
+		width: 100%
+		height: auto
+
+// Альбом
+.album-images
+	a
+		width: 200px
+		height: 200px
+		overflow: hidden
+		position: relative
+		display: inline-block
+		box-sizing: content-box
+
+		img
+			width: auto
+			margin-left: -20%
+			height: 100%
+
+// Видео
+.video-title
+	font: em(17px) $bold
+	margin-bottom: 14px
+
+.video
+	iframe
+		width: 100%
+		height: 300px
+	margin-bottom: 50px
+
+// Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) { ... }
+
+// Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) { ... }
+@media (max-width: 992px)
+	.main-menu
+		display: none
+// Large devices (desktops, 992px and up)
+// @media (min-width: 992px) { ... }
+@media (max-width: 1200px)
+	.main-menu
+		ul li
+			margin: 0 6px
+
+// Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) { ... }

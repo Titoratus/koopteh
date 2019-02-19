@@ -44,12 +44,42 @@ $(document).ready(function() {
 	// Карусель на главной
 	$(".owl-carousel").owlCarousel({
 		nav:true,
+		loop:true,
 		dots:false,
 		responsive:{
 		        0:{
 		            items:1
 		        }
 		    }		
+	});
+
+	// Кастомная галерея
+	$('.popup-gallery').magnificPopup({
+		delegate: 'a',
+		type: 'image',
+		tLoading: 'Загрузка #%curr%...',
+		mainClass: 'mfp-img-mobile',
+		gallery: {
+			enabled: true,
+			navigateByImgClick: true,
+			preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+		},
+		image: {
+			tError: '<a href="%url%">Не удалось загрузить изображение #%curr%</a>',
+			titleSrc: function(item) {
+				return false;
+			}			
+		}
+	});	
+
+	$(document).on("click", ".tab-link", function(){
+		var tab = $(this).attr("data-tab");
+
+		$(".tab-link").removeClass("active");
+		$(this).addClass("active");
+		
+		$(".tab-content").hide();
+		$(".tab-"+tab).show();
 	});
 
 });

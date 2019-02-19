@@ -23,7 +23,7 @@
 			if($the_query->have_posts() ) : ?>
 			<div class="row">
 			<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-				<div class="col-md-4">
+				<div class="col-md-6 video">
 					<h4 class="video-title"><?php the_title(); ?></h4>
 					<?php the_field('video_url'); ?>
 				</div>		
