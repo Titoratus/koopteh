@@ -10,7 +10,7 @@
 				<input type="submit" class="search-submit" value="Поиск">
 				<p class="search-total">
 					<?php $allsearch = new WP_Query("s=$s&showposts=0"); 
-					echo "Всего найдено страниц: ".$allsearch->found_posts; ?>
+					echo "Всего результатов: ".$allsearch->found_posts; ?>
 				</p>
 			</form>
 

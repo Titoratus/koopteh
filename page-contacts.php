@@ -11,16 +11,16 @@
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="col-12">
-			<address class="contact_item"><?php echo get_option('org_addr'); ?></address>
-			<div class="contact_item">
-				<div class="org_email"><?php echo get_option('admin_email'); ?></div>
-				<div class="org_phones">8 (814-2) 76-68-81 <br> 8 (814-2) 70-22-73</div>
-			</div>
-			<div class="contact_item">Понедельник-суббота: с 8:00 до 19:40. <br> Воскресенье - выходной.</div>
+	<div class="row contacts">
+		<div class="col-md">
+			<address><?php echo get_option('org_addr'); ?></address>
 		</div>
-	</div>
+		<div class="col-md-3 align-self-center">
+			<div class="org_email"><?php echo get_option('admin_email'); ?></div>
+			<div class="org_phones">8 (814-2) 76-68-81 <br> 8 (814-2) 70-22-73</div>
+		</div>
+		<div class="col-md"><div>Понедельник-суббота: с 8:00 до 19:40. <br> Воскресенье - выходной.</div></div>
+	</div>	
 
 	<div class="row">
 		<div class="col-12 org_map">

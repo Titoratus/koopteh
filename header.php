@@ -58,8 +58,8 @@
 					</form>
 				</div>
 
-				<i class="fas fa-sitemap"></i>
-				<a href="" class="view-btn bvi-panel-open">Версия для слабовидящих</a>
+				<a href="http://localhost/koopteh/sitemap_index.xml"><i class="fas fa-sitemap"></i></a>
+				<a href="" class="view-btn bvi-panel-open" itemprop="copy">Версия для слабовидящих</a>
 			</div>
 		</div>
 	</div>

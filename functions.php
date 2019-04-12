@@ -213,6 +213,22 @@ function my_more_options() {
 	register_setting('general', 'comp_vk');
 	add_settings_field('org_addr', 'Адрес техникума', 'display_addr', 'general');
 	register_setting('general', 'org_addr');
+	add_settings_field('org_date', 'Дата создания образовательной организации', 'display_date', 'general');
+	register_setting('general', 'org_date');
+	add_settings_field('org_uch', 'Учредитель', 'display_uch', 'general');
+	register_setting('general', 'org_uch');	
+	add_settings_field('org_uch_addr', 'Адрес учредителя', 'display_uch_addr', 'general');
+	register_setting('general', 'org_uch_addr');
+	add_settings_field('org_tels', 'Контактные телефоны', 'display_tels', 'general');
+	register_setting('general', 'org_tels');
+	add_settings_field('org_email', 'Электронная почта', 'display_emails', 'general');
+	register_setting('general', 'org_email');	
+	add_settings_field('org_site', 'Адрес сайта учредителя', 'display_site', 'general');
+	register_setting('general', 'org_site');		
+	add_settings_field('org_workTime', 'График работы техникума', 'display_workTime', 'general');
+	register_setting('general', 'org_workTime');		
+	add_settings_field('org_fax', 'Факс техникума', 'display_fax', 'general');
+	register_setting('general', 'org_fax');		
 }
 
 add_action('admin_init', 'my_more_options');
@@ -222,7 +238,39 @@ function display_vk() {
 }
 
 function display_addr() {
-	echo "<input type='text' name='org_addr' autocomplete='off' value='".esc_attr(get_option('org_addr'))."'>";
+	echo "<input type='text' style='width: 500px' name='org_addr' autocomplete='off' value='".esc_attr(get_option('org_addr'))."'>";
+}
+
+function display_date() {
+	echo "<input type='text' name='org_date' autocomplete='off' value='".esc_attr(get_option('org_date'))."'>";
+}
+
+function display_uch() {
+	echo "<input type='text' style='width: 500px' name='org_uch' autocomplete='off' value='".esc_attr(get_option('org_uch'))."'>";
+}
+
+function display_uch_addr() {
+	echo "<input type='text' style='width: 500px' name='org_uch_addr' autocomplete='off' value='".esc_attr(get_option('org_uch_addr'))."'>";
+}
+
+function display_tels() {
+	echo "<textarea name='org_tels' style='width: 500px' rows='3'>".esc_attr(get_option('org_tels'))."</textarea>";
+}
+
+function display_emails() {
+	echo "<input type='text' name='org_email' autocomplete='off' value='".esc_attr(get_option('org_email'))."'>";
+}
+
+function display_site() {
+	echo "<input type='text' name='org_site' autocomplete='off' value='".esc_attr(get_option('org_site'))."'>";
+}
+
+function display_workTime() {
+	echo "<textarea name='org_workTime' style='width: 500px' rows='3'>".esc_attr(get_option('org_workTime'))."</textarea>";
+}
+
+function display_fax() {
+	echo "<input type='text' name='org_fax' autocomplete='off' value='".esc_attr(get_option('org_fax'))."'>";
 }
 
 // Excerpt
@@ -303,3 +351,15 @@ function create_links() {
   );
 }
 add_action( 'init', 'create_links' );
+
+function override_tinymce_option($initArray) {
+    $opts = '*[*]';
+    $initArray['valid_elements'] = $opts;
+    $initArray['extended_valid_elements'] = $opts;
+    return $initArray;
+}
+add_filter('tiny_mce_before_init', 'override_tinymce_option');
+
+@ini_set( 'upload_max_size' , '64M' );
+@ini_set( 'post_max_size', '64M');
+@ini_set( 'max_execution_time', '300' );

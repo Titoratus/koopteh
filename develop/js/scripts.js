@@ -72,14 +72,24 @@ $(document).ready(function() {
 		}
 	});	
 
+	// Табы на главной
 	$(document).on("click", ".tab-link", function(){
 		var tab = $(this).attr("data-tab");
 
 		$(".tab-link").removeClass("active");
 		$(this).addClass("active");
 		
-		$(".tab-content").hide();
-		$(".tab-"+tab).show();
+		$(".tab-current").removeClass("tab-current");
+		$(".tab-"+tab).addClass("tab-current");
 	});
+
+	// Gallery in news
+	$('.news-gallery').magnificPopup({
+	  type: 'image',
+	  delegate: 'a',
+	  gallery:{
+	    enabled:true
+	  }
+	});	
 
 });

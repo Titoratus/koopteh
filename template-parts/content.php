@@ -15,7 +15,19 @@
 			</article>			
 
 			<div class="news-content">
-				<?php the_content(); ?>
+				<?php the_content();
+				$images = explode (",", get_field('news_gallery'));
+				$size = 'thumbnail'; // (thumbnail, medium, large, full or custom size)
+
+				if( $images ): ?>
+				    <div class="news-gallery">
+				        <?php foreach( $images as $image ): ?>
+				            <a href="<?php echo wp_get_attachment_image_url($image, 'full'); ?>">
+				            	<?php echo wp_get_attachment_image( $image, $size ); ?>
+				            </a>
+				        <?php endforeach; ?>
+				    </div>			    
+				<?php endif; ?>				
 			</div>
 
 			<div class="news-other row">

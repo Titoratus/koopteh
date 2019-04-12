@@ -68,7 +68,10 @@
 
 			<div class="col-md-8">
 				<?php
-					$args = array('post_type' => 'speciality');              
+					$args = array(
+						'post_type' => 'speciality',
+						'post_status' => 'publish'
+					);
 					$count = 0;
 
 					$the_query = new WP_Query( $args );
@@ -77,7 +80,7 @@
 					?>
 						<div class="tab-content tab-<?php echo $count; if ($count == 1) echo ' tab-current'; ?>">
 							<h3><?php the_title(); ?></h3>
-							<div class="tab-qualif">Квалификация выпускника: <?php the_field('spec_qualif'); ?></div>
+							<div class="tab-qualif"><b>Квалификация выпускника:</b> <?php the_field('spec_qualif'); ?></div>
 							<div class="tab-time">
 								<span><b>Очно:</b> <?php the_field('spec_o_9'); ?></span>
 								<span><b>Заочно:</b> <?php the_field('spec_z'); ?></span>
